@@ -11,14 +11,14 @@ def pathfinder(point,target,obstacles):
 		print(i)
 		areas[i[0]][i[1]] = 1
 		print(frame[i[0]][i[1]])
-		frame[i[0]][i[1]] = (255,255,255)
+		frame[i[0]][i[1]] = (0,0,255)
 		print(frame[i[0]][i[1]])
 	while True:
 		cv2.namedWindow("FollowMeCooler Pathfinder")
 		cv2.imshow("FollowMeCooler Pathfinder", frame)
 		key = cv2.waitKey(1) & 0xFF
 		np.set_printoptions(threshold=sys.maxsize)
-		print(frame[frame > 0])
+		#print(frame[frame > 0])
 		
 		time.sleep(1)
 
