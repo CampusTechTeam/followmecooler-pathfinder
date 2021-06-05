@@ -8,8 +8,8 @@ import random
 
 def pathfinder(point,target,obstacles):
 	print(point,target)
-	area = np.zeros((500,500), np.uint8)
-	frame = np.zeros((500,500,3), np.uint8)
+	area = np.zeros((250,250), np.uint8)
+	frame = np.zeros((250,250,3), np.uint8)
 	for i in obstacles:
 		area[i[0]][i[1]] = 1
 		frame[i[1]][i[0]] = (255,255,255)
@@ -23,16 +23,15 @@ def pathfinder(point,target,obstacles):
 	for i in path:
 		frame[i[1]][i[0]] = (0,0,255)
 		#print(i)
-	cv2.namedWindow("FollowMeCooler Pathfinder")
+	cv2.namedWindow("FollowMeCooler Pathfinder", flags=cv2.WINDOW_GUI_EXPANDED)
 	cv2.imshow("FollowMeCooler Pathfinder", frame)
-	key = cv2.waitKey(1) & 0xFF
+	key = cv2.waitKey(3000) & 0xFF
 	np.set_printoptions(threshold=sys.maxsize)
 	#print(frame[frame > 0])
 	
 	
 
 while True:
-	#time.sleep(0.1)
-	obstacles = [[random.randint(0,499),random.randint(0,499)],[random.randint(0,499),random.randint(0,499)]]
-	for i in range(0,1000): obstacles.append([random.randint(0,499),random.randint(0,499)])
-	pathfinder((100,random.randint(0,499)),(400,random.randint(0,499)),obstacles)
+	obstacles = [[random.randint(0,249),random.randint(0,249)],[random.randint(0,249),random.randint(0,249)]]
+	for i in range(0,1000): obstacles.append([random.randint(0,249),random.randint(0,249)])
+	pathfinder((100,random.randint(0,249)),(200,random.randint(0,249)),obstacles)
